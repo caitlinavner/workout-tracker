@@ -17,18 +17,18 @@ const newWorkout = document.querySelector(".new-workout");
 let workoutType = null;
 let shouldNavigateAway = false;
 
+init();
+
 async function init() {
   if (location.search.split("=")[1] === undefined) {
     const workout = await API.getLastWorkout();
     if (workout) {
       location.search = "?id=" + workout._id;
     } else {
-      document.querySelector("#continue-btn").classList.add("d-none");
+      newWorkout.classList.add("");
     }
   }
 }
-
-init();
 
 function handleWorkoutTypeChange(event) {
   workoutType = event.target.value;
