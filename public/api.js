@@ -1,8 +1,10 @@
 const API = {
   async getLastWorkout() {
+    //async means it'll wait. it won't happen all at once. in order
     const res = await fetch("/api/workouts");
     const json = await res.json();
-
+//fetch is like pushing a button
+    //await triggers once the thing has happened in fetch. always used with async
     return json[json.length - 1];
   },
   async addExercise(data) {
